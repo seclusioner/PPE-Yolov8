@@ -1,22 +1,30 @@
 ﻿# PPE-Yolov8
-This is a side project for object detection using yolo algorithm (yolov8).
+
+## Introduction
+This is a side project for object detection using yolo algorithm (yolov8), simliar with another side project (car counter).
+
+We input some videos `Inputs/...` or webcam (you can modify in `main.py`) and output the result in `Results/output.mp4`.
+
+# Custom model
 
 ## Dataset
-We download the dataset on `Roboflow`, this case is about construction safety. [Source](https://universe.roboflow.com/roboflow-universe-projects/construction-site-safety/dataset/28/download/yolov8)
+Download the dataset on `Roboflow`, this case is about Construction safety.  [Source](https://universe.roboflow.com/roboflow-universe-projects/construction-site-safety/dataset/28/download/yolov8)
 
 We edit `data.yaml` file, setting some parameters according to your file path.
 
-If you want to create your own dataset on yolo, then you can use [open source](https://github.com/HumanSignal/labelImg), just label the objects by yourself and it will generate yolo format labeling file (.txt) for your image. For more, you can check out its README file.
+If you want to create your own dataset, then you can use [open source](https://github.com/HumanSignal/labelImg), just label the objects by yourself and it will generate yolo format labeling file (.txt) for your image. For more, you can check out its README file.
 
-## Training Yolo model
+## Training Your Yolo model
+
+I take some notes for training customize yolo model, you can directly see the `Yolov8_model.ipynb` file, too.
 
 ### Google colab
 
 * Preparatory work
 
-    If you use google colab to train the model, first you have to upload your dataset to your drive, and create `.ipynb` file.
+    If you use google colab to train the model, first you have to **upload your dataset to your drive**, and create `.ipynb` file.
     
-    Then you have to go to your `Files` to check if you mount your drive to this .ipynb, to let code use data in your drive.
+    Then you have to go to your `Files` to check if you mount your drive to this .ipynb, to let code able to use data in your drive.
     
     Clone the yolo open source code, in this case we install ultralytics (yolov8) through pip (if you training on google colab, remember to add '!' at beginning)：
     
@@ -52,7 +60,7 @@ If you want to create your own dataset on yolo, then you can use [open source](h
     - task：you can change the task like segmentation according to your application.
     - mode: predict / train base on what you're going to do
     - model: there are several models you can choose
-    - conf: threhold (min. is 0.25)
+    - conf: confidence value threhold (min. is 0.25)
     - source: image used to test, it may in your root/drive or url
     
     If you execute successfully, then you have already installed. Then we can change the mode to train (not predict), it will use pre-defined structure to train your model：
@@ -63,13 +71,13 @@ If you want to create your own dataset on yolo, then you can use [open source](h
     
     Param.：
     - data: To import the .yaml file, here is `../content/drive/MyDrive/Construction_Dataset/data.yaml`
-    - training param.: Set by yourself if you need (e.g. epoch, for more you can go to [Official document](https://docs.ultralytics.com/modes/train/#resuming-interrupted-trainings))
+    - training param.: Set by yourself if you need (e.g. epochs, for more you can go to [Official document](https://docs.ultralytics.com/modes/train/#resuming-interrupted-trainings))
     
     And then you can obtain some files(loss、accuarcy、confusion matrix ... etc.), and we choose `best.pt` file as model we use.
 
 * Coding
 
-    Maybe your code approximately like this (assume we rename `best.pt` as `custom.pt`)：
+    So you can apply your own model in your code. Maybe your code approximately like this (assume we rename `best.pt` as `custom.pt`)：
     
     ``` bash
     from ultralytics import YOLO
@@ -84,6 +92,7 @@ If you want to create your own dataset on yolo, then you can use [open source](h
 
 ### Other IDE
 You can create the project to train the model, and the process is similar with google colab.
+
 
 ## References
 - [Youtube](https://www.youtube.com/watch?v=WgPbbWmnXJ8)
