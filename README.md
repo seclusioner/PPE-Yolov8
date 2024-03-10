@@ -28,7 +28,7 @@ If you want to create your own dataset, then you can use [open source](https://g
 
 ## Training Your Yolo model
 
-I take some notes for training customize yolo model, you can directly see the `Yolov8_model.ipynb` file, too.
+I take some notes for training customize yolo model, you can directly see the `training_model.ipynb` file, too.
 
 ### Google colab
 
