@@ -5,6 +5,18 @@ This is a side project for object detection using yolo algorithm (yolov8), simli
 
 We input some videos `Inputs/...` or webcam (you can modify in `main.py`) and output the result in `Results/output.mp4`.
 
+### Libraries version
+| Library's name | Version       |
+| -------------- | ------------- |
+| ultralytics    | 8.1.19        |
+| torch          | 2.2.1         |
+| numpy          | 1.23.0        |
+| opencv-python  | 4.5.4.60      |
+| filterpy       | 1.4.5         |
+| scikit-image   | 0.19.3        |
+| lap            | 0.4.0         |
+| cvzone         | 1.6.1         |
+
 # Custom model
 
 ## Dataset
