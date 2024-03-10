@@ -48,7 +48,7 @@ I take some notes for training customize yolo model, you can directly see the `t
     Once you install the library from github, then you can write python code to import the library you just download：
     
     ``` bash
-    !from ultralytics import YOLO
+    from ultralytics import YOLO
     
     ```
 
