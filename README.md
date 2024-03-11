@@ -47,7 +47,7 @@ I take some notes for training customize yolo model, you can directly see the `t
     
     Once you install the library from github, then you can write python code to import the library you just download：
     
-    ``` bash
+    ``` python
     from ultralytics import YOLO
     
     ```
@@ -82,6 +82,8 @@ I take some notes for training customize yolo model, you can directly see the `t
     ```
     
     But my computer can not run so many epochs, so I change the parameters to epochs=30 and imgsz=480, the model save as `yolo_model/self.pt`, correspond output is `Results/output.mp4`.
+
+    *Rmk: When I uploading self.pt file, it shows the warning that the max. recommend size is 50MB, may cause some problems, you can run .ipynb file to produce it.*
 
     Param.：
     - data: To import the .yaml file, here is `../content/drive/MyDrive/Construction_Dataset/data.yaml`
