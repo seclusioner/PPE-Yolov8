@@ -6,7 +6,7 @@ from cvzone import putTextRect
 from ultralytics import YOLO
 
 videoPath = 'Inputs/ppe1.mp4'
-modelPath = 'yolo_model/ppe.pt'
+modelPath = 'yolo_model/self.pt' # ppe.pt
 
 def checkVideo(videoPath):
     if not os.path.exists(videoPath):

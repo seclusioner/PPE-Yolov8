@@ -3,7 +3,7 @@
 ## Introduction
 This is a side project for object detection using yolo algorithm (yolov8), simliar with another side project (car counter).
 
-We input some videos `Inputs/...` or webcam (you can modify in `main.py`) and output the result in `Results/output.mp4`.
+We input some videos `Inputs/...` or webcam (you can modify in `main.py`) and output have two results：`Results/ori_output.mp4` and `Results/output.mp4`, because we have two models.
 
 ### Libraries version
 | Library's name | Version       |
@@ -28,7 +28,7 @@ If you want to create your own dataset, then you can use [open source](https://g
 
 ## Training Your Yolo model
 
-I take some notes for training customize yolo model, you can directly see the `training_model.ipynb` file, too.
+I take some notes for training customize yolo model, you can directly see the `training_model.ipynb` file, too (for epochs=30 and imgsz=480).
 
 ### Google colab
 
@@ -75,12 +75,14 @@ I take some notes for training customize yolo model, you can directly see the `t
     - conf: confidence value threhold (min. is 0.25)
     - source: image used to test, it may in your root/drive or url
     
-    If you execute successfully, then you have already installed. Then we can change the mode to train (not predict), it will use pre-defined structure to train your model：
+    If you execute successfully, then you have already installed. Then we can change the mode to train (not predict), it will use pre-defined structure to train your model. The parameters in video is epochs=50 and imgsz=640, the model save as `yolo_model/ppe.pt`, correspond output is `Results/ori_output.mp4`.
     
     ``` bash
     !yolo task=detect mode=train model=yolov8l.pt data=../content/drive/MyDrive/Construction_Dataset/data.yaml epochs=50 imgsz=640
     ```
     
+    But my computer can not run so many epochs, so I change the parameters to epochs=30 and imgsz=480, the model save as `yolo_model/self.pt`, correspond output is `Results/output.mp4`.
+
     Param.：
     - data: To import the .yaml file, here is `../content/drive/MyDrive/Construction_Dataset/data.yaml`
     - training param.: Set by yourself if you need (e.g. epochs, for more you can go to [Official document](https://docs.ultralytics.com/modes/train/#resuming-interrupted-trainings))
@@ -91,7 +93,7 @@ I take some notes for training customize yolo model, you can directly see the `t
 
     So you can apply your own model in your code. Maybe your code approximately like this (assume we rename `best.pt` as `custom.pt`)：
     
-    ``` bash
+    ``` python
     from ultralytics import YOLO
     import cv2
     
